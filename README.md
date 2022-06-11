@@ -2,4 +2,4 @@
 This is a template repository for a Grasscutter plugin.
 
 ### Version
-The plugin template is currently on Grasscutter version `1.1.2-dev`.
+The plugin template is currently on Grasscutter version `1.2.0`.
