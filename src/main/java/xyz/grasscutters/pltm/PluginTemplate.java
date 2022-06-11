@@ -5,7 +5,9 @@ import emu.grasscutter.plugin.Plugin;
 import emu.grasscutter.server.event.EventHandler;
 import emu.grasscutter.server.event.HandlerPriority;
 import emu.grasscutter.server.event.player.PlayerJoinEvent;
-import xyz.grasscutters.pltm.objects.PluginConfig;
+
+import xyz.grasscutters.pltm.commands.*;
+import xyz.grasscutters.pltm.objects.*;
 
 import java.io.*;
 import java.util.stream.Collectors;
@@ -63,6 +65,9 @@ public final class PluginTemplate extends Plugin {
         } catch (IOException exception) {
             this.getLogger().error("Failed to create config file.", exception);
         }
+        
+        // Log a plugin status message.
+        this.getLogger().info("The example plugin has been loaded.");
     }
 
     /**
@@ -74,13 +79,20 @@ public final class PluginTemplate extends Plugin {
                 .priority(HandlerPriority.LOW)
                 .listener(EventListeners::onJoin)
                 .register();
+        
+        // Register commands.
+        this.getHandle().registerCommand(new ExampleCommand());
+
+        // Log a plugin status message.
+        this.getLogger().info("The example plugin has been enabled.");
     }
 
     /**
      * This method is called when the plugin is disabled.
      */
     @Override public void onDisable() {
-        
+        // Log a plugin status message.
+        this.getLogger().info("The example plugin has been disabled.");
     }
 
     /**
